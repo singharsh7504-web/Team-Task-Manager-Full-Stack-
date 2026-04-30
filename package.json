@@ -4,12 +4,12 @@
   "description": "Full-stack Team Task Manager with role-based access",
   "main": "server.js",
   "scripts": {
-  "start": "node server.js",
-  "server": "nodemon server.js",
-  "client": "npm run dev --prefix frontend",
-  "dev": "concurrently \"npm run server\" \"npm run client\"",
-  "build": "cd frontend && npm install && npm run build"
-},
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm run dev --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "build": "cd frontend && npm install && npm run build"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -18,7 +18,7 @@
     "bcryptjs": "^3.0.3",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
-    "express": "^4.19.2",
+    "express": "^4.21.2",
     "jsonwebtoken": "^9.0.3",
     "mongoose": "^9.6.1"
   },
@@ -26,5 +26,4 @@
     "concurrently": "^9.2.1",
     "nodemon": "^3.1.14"
   }
-  
 }
