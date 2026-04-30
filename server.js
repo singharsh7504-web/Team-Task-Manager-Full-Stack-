@@ -1,5 +1,3 @@
-console.log("NEW BUILD DEPLOYED - NO WILDCARD");
-
 const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
