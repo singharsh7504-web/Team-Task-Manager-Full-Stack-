@@ -57,13 +57,18 @@ app.use('/api/notifications', require('./backend/routes/notifications'));
 
 // Serve frontend in production
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, 'frontend/dist')));
+  const distPath = path.join(__dirname, 'frontend', 'dist');
 
-  // Catch-all fallback (no route pattern parsing issues)
-  app.use((req, res) => {
-    res.sendFile(
-      path.resolve(__dirname, 'frontend', 'dist', 'index.html')
-    );
+  // Serve static files FIRST
+  app.use(express.static(distPath));
+
+  // ONLY fallback for frontend routes (not assets, not API)
+  app.get('*', (req, res) => {
+    if (req.path.startsWith('/api') || req.path.startsWith('/assets')) {
+      return res.status(404).end();
+    }
+
+    res.sendFile(path.join(distPath, 'index.html'));
   });
 } else {
   app.get('/', (req, res) => {
